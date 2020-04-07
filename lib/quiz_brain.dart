@@ -32,9 +32,13 @@ class QuizBrain {
   ];
 
   void nextQuestion() {
-    if(_questionNumber < _questionBank.length - 1) {
+    if(!isEndOfQuiz()) {
       _questionNumber++;
     }
+  }
+
+  bool isEndOfQuiz() {
+    return _questionNumber == _questionBank.length -1;
   }
 
   String getQuestion() {
@@ -43,5 +47,9 @@ class QuizBrain {
 
   bool getAnswer() {
     return _questionBank[_questionNumber].questionAns;
+  }
+
+  void resetQuestionNumber() {
+    _questionNumber = 0;
   }
 }
